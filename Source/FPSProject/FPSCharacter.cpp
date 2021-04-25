@@ -37,6 +37,10 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	//PlayerInputComponent->
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFPSCharacter::MoveRight);
+
+	// Set up mouse bindings
+    PlayerInputComponent->BindAxis("Turn", this, &AFPSCharacter::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("LookUp", this, &AFPSCharacter::AddControllerPitchInput);
 }
 
 void AFPSCharacter::MoveForward(float Value) {
